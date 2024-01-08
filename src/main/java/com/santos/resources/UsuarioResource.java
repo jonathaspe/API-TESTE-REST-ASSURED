@@ -1,5 +1,7 @@
 package com.santos.resources;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -25,5 +27,12 @@ public class UsuarioResource {
 		return ResponseEntity.ok(obj);
 	}
 	
+	
+	@GetMapping
+	public ResponseEntity<List<Usuario>> findAll(){
+		List<Usuario> list= service.findAll();
+		return ResponseEntity.ok().body(list);
+		
+	}
 	
 }
